@@ -1,5 +1,6 @@
 package br.com.bprates.clientes_service.controller;
 
+import br.com.bprates.clientes_service.dtos.ClienteContaDTO;
 import br.com.bprates.clientes_service.model.Cliente;
 import br.com.bprates.clientes_service.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,11 @@ public class ClienteController {
     @GetMapping(value = "{id}")
     public Cliente obterPorId(@PathVariable Integer id) {
         return clienteService.obterPorId(id);
+    }
+
+    @GetMapping(value = "{id}/contas")
+    public ClienteContaDTO obterContasPorClientId(@PathVariable Integer id) {
+        return clienteService.obterContasPorClienteId(id);
     }
 
     @GetMapping("/buscar/nome")
